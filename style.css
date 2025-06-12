@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+}
+
+/* header styling */
+header {
+  background-color: rgb(42, 140, 226);
+  margin: 0 0 10px 0;
+}
+
+.logo {
+  margin: 0px 0px 0px 0px;
+  padding: 10px;
+  color: white;
+}
+
+/* main styling */
+
+.modal-hidden {
+  display: none;
+}
+
+.modal-show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-container {
+  display: grid;
+}
+
+.add-btn {
+  will-change: transform;
+  margin: 10px;
+  padding: 8px 10px 8px 10px;
+  background-color: rgb(39, 190, 39);
+  color: white;
+  border-radius: 14px;
+  border: 1px solid;
+  transition: transform 0.3s;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+}

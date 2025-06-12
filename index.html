@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Manager List</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Contact Manager</h1>
-      <form id="contact-form">
-        <input type="text" id="first-name" placeholder="First Name" required />
-        <input type="text" id="last-name" placeholder="Last Name" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="tel" id="phone-number" placeholder="Phone" />
-        <button type="submit">Add Contact</button>
-      </form>
-    </div>
+    <header>
+      <h1 class="logo">Contact Manager</h1>
+    </header>
+    <main>
+      <div class="app-container">
+        <button id="add-contact-btn" class="add-btn">+ Add</button>
+
+        <div id="modal" class="modal-hidden">
+          <div class="form-container">
+            <form id="contact-form">
+              <input type="text" id="first-name" placeholder="First Name" required />
+              <input type="text" id="last-name" placeholder="Last Name" required />
+              <input type="email" id="email" placeholder="Email" required />
+              <input type="tel" id="phone-number" placeholder="Phone" />
+              <button type="submit">Add Contact</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="script.js"></script>
   </body>

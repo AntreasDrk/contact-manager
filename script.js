@@ -4,6 +4,15 @@ const form = document.getElementById("contact-form");
 // Stored Contacts
 let contacts = [];
 
+// Grabs the saved contacts to read it
+const savedContacts = localStorage.getItem("contacts");
+
+// checks if its not empty and if not it will save it back to contacts array
+if (savedContacts) {
+  contacts = JSON.parse(savedContacts);
+}
+
+// Function to store contacts when called
 function storeContacts(firstName, lastName, email, phone) {
   const contact = {
     firstName: firstName,
@@ -12,7 +21,8 @@ function storeContacts(firstName, lastName, email, phone) {
     phone: phone,
   };
 
-  contacts.push(contact);
+  contacts.push(contact); // updates the array with a contact
+  localStorage.settItem("contacts", JSON.stringify(contacts)); // save updated array
 }
 
 // Stops submit button from reloading the page
