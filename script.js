@@ -1,9 +1,17 @@
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
 
-// Modal button
+// Modal add button
 const addBtn = document.getElementById("add-contact-btn");
 const modal = document.getElementById("modal");
+
+// Modal close button
+const closeBtn = document.getElementById("close-modal-btn");
+
+closeBtn.addEventListener("click", function () {
+  modal.classList.add("modal-hidden");
+  modal.classList.remove("modal-show");
+});
 
 // event listener for the modal button
 addBtn.addEventListener("click", function () {

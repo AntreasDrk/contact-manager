@@ -24,6 +24,7 @@ header {
   padding: 8px 10px 8px 10px;
   background-color: rgb(39, 190, 39);
   color: white;
+  font-weight: bold;
   border-radius: 14px;
   border: 1px solid;
   transition: transform 0.3s;
