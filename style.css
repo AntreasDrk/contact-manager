@@ -43,7 +43,6 @@ header {
   left: 0;
   width: 50vw;
   height: 50vh;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #modal {
@@ -54,7 +53,6 @@ header {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); /* dim background */
   z-index: 10; /* stays above everything else */
 }
 
@@ -64,5 +62,6 @@ header {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   width: 90%;
+  border: 1px solid rgb(214, 212, 212);
   max-width: 500px; /* controls the max width */
 }
