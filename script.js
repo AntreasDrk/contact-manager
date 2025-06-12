@@ -1,6 +1,16 @@
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
 
+// Modal button
+const addBtn = document.getElementById("add-contact-btn");
+const modal = document.getElementById("modal");
+
+// event listener for the modal button
+addBtn.addEventListener("click", function () {
+  modal.classList.toggle("modal-show");
+  modal.classList.toggle("modal-hidden");
+});
+
 // Stored Contacts
 let contacts = [];
 
