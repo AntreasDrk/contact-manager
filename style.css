@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Open Sans;
+  font-size: 20px;
 }
 
 /* header styling */
@@ -34,6 +35,16 @@ header {
   transform: scale(1.05);
 }
 
+.close-btn {
+  position: absolute;
+  height: 1.5em;
+  width: 1.5em;
+  top: 2%;
+  right: 1%;
+  cursor: pointer;
+  z-index: 999;
+}
+
 #modal.modal-hidden {
   display: none !important;
 }
@@ -58,11 +69,21 @@ header {
 }
 
 .form-container {
+  position: relative;
   background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  border: 1px solid rgb(214, 212, 212);
-  max-width: 500px; /* controls the max width */
+  max-width: 300px;
+}
+
+.input-fields {
+  margin: 0.5em 1em 0.5em 0.1em;
+  padding: 12px 64px 12px 25px;
+  background-color: rgba(128, 128, 128, 0.35);
+  color: black;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 3px;
 }
