@@ -47,6 +47,8 @@ header {
 
 #modal.modal-hidden {
   display: none !important;
+  transform: scale(0.9);
+  opacity: 0;
 }
 
 .modal-show {
@@ -55,6 +57,9 @@ header {
   left: 0;
   width: 50vw;
   height: 50vh;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
 }
 
 #modal {
@@ -70,7 +75,7 @@ header {
 
 .form-container {
   position: relative;
-  background-color: #fff;
+  background-color: #e6e6e6;
   border-radius: 0.75rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   padding: 2rem;
@@ -78,12 +83,32 @@ header {
 }
 
 .input-fields {
+  position: inherit;
   margin: 0.5em 1em 0.5em 0.1em;
-  padding: 12px 64px 12px 25px;
-  background-color: rgba(128, 128, 128, 0.35);
+  padding: 10px 64px 10px 15px;
+  background-color: rgba(202, 202, 202, 0.568);
   color: black;
   text-decoration: none;
   border: none;
   outline: none;
   border-radius: 3px;
+}
+
+.submit-btn {
+  background-color: rgb(39, 190, 39);
+  color: white;
+  border-radius: 1em;
+  border: none;
+  margin: 1.5em 0 0 0;
+  padding: 0.7em;
+  cursor: pointer;
+}
+
+.new-contact {
+  margin: 0 0 0.7em 0;
+  padding: 0;
+  position: absolute;
+
+  top: -2%;
+  left: 2%;
 }
