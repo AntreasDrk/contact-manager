@@ -11,6 +11,11 @@ header {
   margin: 0 0 10px 0;
 }
 
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+
 .logo {
   margin: 0px 0px 0px 0px;
   padding: 10px;
@@ -111,4 +116,11 @@ header {
 
   top: -2%;
   left: 2%;
+}
+
+/* contact list display */
+
+.contact-list-container {
+  width: 10em;
+  height: 10em;
 }

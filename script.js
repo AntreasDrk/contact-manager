@@ -22,6 +22,24 @@ addBtn.addEventListener("click", function () {
 // Stored Contacts
 let contacts = [];
 
+// Contact List
+const listContainer = document.getElementById("contact-list");
+
+contacts.forEach(function (contact) {
+  // Contact Card (this will be used to create a div inside the container for the list)
+  const contactCard = document.createElement("div");
+
+  contactCard.innerHTML = `
+    <div class = "contact-card">
+      <h3> ${contact.firstName} ${contact.lastName} </h3>
+      <p>Email: ${contact.email} </p>
+      <p>Phone: ${contact.phone} </p>
+    </div>
+    `;
+
+  listContainer.appendChild(contactCard);
+});
+
 // Grabs the saved contacts to read it
 const savedContacts = localStorage.getItem("contacts");
 
@@ -40,7 +58,7 @@ function storeContacts(firstName, lastName, email, phone) {
   };
 
   contacts.push(contact); // updates the array with a contact
-  localStorage.settItem("contacts", JSON.stringify(contacts)); // save updated array
+  localStorage.setItem("contacts", JSON.stringify(contacts)); // save updated array
 }
 
 // Stops submit button from reloading the page
