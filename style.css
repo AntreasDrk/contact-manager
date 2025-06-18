@@ -118,9 +118,29 @@ header {
   left: 2%;
 }
 
-/* contact list display */
+/* contacts display wrapper */
+.contacts-display-wrapper {
+  margin: 2em 0em 0em 0em;
+}
 
+/* contact cards */
 .contact-list-container {
-  width: 30em;
-  height: 20em;
+  position: relative;
+  width: 12em;
+  height: 2em;
+  margin: 0em 0em 0em 3em;
+  padding: 0.5em;
+}
+
+.contact-card {
+  position: absolute;
+  width: 12em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-card h5 {
+  margin: 0;
+  padding: 0;
 }

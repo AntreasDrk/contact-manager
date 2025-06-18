@@ -22,31 +22,29 @@ addBtn.addEventListener("click", function () {
 // Stored Contacts
 let contacts = [];
 
+// Contact List
+const listContainer = document.getElementById("contact-list");
+
 // Grabs the saved contacts to read it
 const savedContacts = localStorage.getItem("contacts");
 
 // checks if its not empty and if not it will save it back to contacts array
 if (savedContacts) {
   contacts = JSON.parse(savedContacts);
-}
 
-// Contact List
-const listContainer = document.getElementById("contact-list");
+  contacts.forEach(function (contact) {
+    // Contact Card (this will be used to create a div inside the container for the list)
+    const contactCard = document.createElement("div");
+    contactCard.classList.add("contact-card");
 
-contacts.forEach(function (contact) {
-  // Contact Card (this will be used to create a div inside the container for the list)
-  const contactCard = document.createElement("div");
-
-  contactCard.innerHTML = `
-    <div class = "contact-card">
-      <h3> ${contact.firstName} ${contact.lastName} </h3>
-      <p>Email: ${contact.email} </p>
-      <p>Phone: ${contact.phone} </p>
-    </div>
+    contactCard.innerHTML = `
+      <input type="checkbox" />
+      <h5> ${contact.firstName} ${contact.lastName} </h5>
     `;
 
-  listContainer.appendChild(contactCard);
-});
+    listContainer.appendChild(contactCard);
+  });
+}
 
 // Function to store contacts when called
 function storeContacts(firstName, lastName, email, phone) {
