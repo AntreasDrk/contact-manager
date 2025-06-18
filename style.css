@@ -121,6 +121,6 @@ header {
 /* contact list display */
 
 .contact-list-container {
-  width: 10em;
-  height: 10em;
+  width: 30em;
+  height: 20em;
 }

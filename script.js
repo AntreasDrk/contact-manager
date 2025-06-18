@@ -22,6 +22,14 @@ addBtn.addEventListener("click", function () {
 // Stored Contacts
 let contacts = [];
 
+// Grabs the saved contacts to read it
+const savedContacts = localStorage.getItem("contacts");
+
+// checks if its not empty and if not it will save it back to contacts array
+if (savedContacts) {
+  contacts = JSON.parse(savedContacts);
+}
+
 // Contact List
 const listContainer = document.getElementById("contact-list");
 
@@ -39,14 +47,6 @@ contacts.forEach(function (contact) {
 
   listContainer.appendChild(contactCard);
 });
-
-// Grabs the saved contacts to read it
-const savedContacts = localStorage.getItem("contacts");
-
-// checks if its not empty and if not it will save it back to contacts array
-if (savedContacts) {
-  contacts = JSON.parse(savedContacts);
-}
 
 // Function to store contacts when called
 function storeContacts(firstName, lastName, email, phone) {
@@ -75,4 +75,13 @@ form.addEventListener("submit", function (event) {
 
   storeContacts(first_Name_field, last_Name_field, email_field, phone_Number_field);
   console.log(contacts);
+});
+
+// Clear button to reset localstorage
+const CLEAR_BTN = document.getElementById("clear-contacts-btn");
+
+CLEAR_BTN.addEventListener("click", function () {
+  localStorage.removeItem("contacts"); // clears localStorage
+  contacts = []; // empties contacts array
+  document.getElementById("contact-list").innerHTML = ""; // clears UI
 });
