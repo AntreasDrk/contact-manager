@@ -124,14 +124,21 @@ header {
   left: 2%;
 }
 
+/* DISPLAY SCREEN */
+.display {
+  display: grid;
+  grid-template-columns: 275px 1fr;
+  grid-template-rows: auto auto;
+  margin: 2em 0em 0em 0em;
+}
 /* contacts display wrapper */
 .contacts-display-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2em 0em 0em 0em;
-  border: 0.1em solid black;
-  max-width: 500px;
+  margin: 0;
+  border: 1px solid black;
+  max-width: 275px;
   box-sizing: border-box;
 }
 
@@ -149,7 +156,7 @@ header {
   gap: 1em;
   width: 100%;
   padding: 0.5em;
-  background-color: #f7f7f7;
+  background-color: #fae6d3;
   border-bottom: 1px solid #ccc;
   border-radius: 14px;
   box-sizing: border-box;
@@ -159,4 +166,9 @@ header {
 .contact-card h5 {
   margin: 0;
   padding: 0;
+}
+
+.info-detail-wrapper {
+  border: 1px solid black;
+  height: 550px;
 }
