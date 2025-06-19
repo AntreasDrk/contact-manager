@@ -1,10 +1,10 @@
 "use strict";
 
 // imports files from the ui.js
-import { showPlaceholder, hidePlaceholder } from "./ui";
+import { showPlaceholder, removePlaceholder } from "./ui.js";
 
 showPlaceholder(); // shows the placeholder when no contact is pressed
-// hidePlaceholder(); // will hide placeholder when contact is pressed
+//removePlaceholder(); // will hide placeholder when contact is pressed
 
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
