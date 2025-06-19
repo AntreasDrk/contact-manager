@@ -1,3 +1,11 @@
+"use strict";
+
+// imports files from the ui.js
+import { showPlaceholder, hidePlaceholder } from "./ui";
+
+showPlaceholder(); // shows the placeholder when no contact is pressed
+// hidePlaceholder(); // will hide placeholder when contact is pressed
+
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
 
@@ -51,15 +59,15 @@ function storeContacts(firstName, lastName, email, phone) {
 // Function so i can display contacts without reloading the page
 function displayContactCard(contact) {
   // Contact Card (this will be used to create a div inside the container for the list)
-    const contactCard = document.createElement("div");
-    contactCard.classList.add("contact-card");
+  const contactCard = document.createElement("div");
+  contactCard.classList.add("contact-card");
 
-    contactCard.innerHTML = `
+  contactCard.innerHTML = `
       <input type="checkbox" />
       <h5> ${contact.firstName} ${contact.lastName} </h5>
     `;
 
-    listContainer.appendChild(contactCard);
+  listContainer.appendChild(contactCard);
 }
 
 // Stops submit button from reloading the page

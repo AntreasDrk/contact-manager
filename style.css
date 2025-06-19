@@ -119,7 +119,6 @@ header {
   margin: 0 0 0.7em 0;
   padding: 0;
   position: absolute;
-
   top: -2%;
   left: 2%;
 }
@@ -128,9 +127,9 @@ header {
 .display {
   display: grid;
   grid-template-columns: 275px 1fr;
-  grid-template-rows: auto auto;
   margin: 2em 0em 0em 0em;
 }
+
 /* contacts display wrapper */
 .contacts-display-wrapper {
   display: flex;
@@ -146,7 +145,7 @@ header {
 .contact-list-container {
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.1em;
 }
 
 .contact-card {
@@ -171,4 +170,20 @@ header {
 .info-detail-wrapper {
   border: 1px solid black;
   height: 550px;
+}
+
+/* RIGHT SIDE PANEL INFO */
+
+.placeholder-msg {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  color: gray;
+  font-style: italic;
+}
+
+.hide-placeholder {
+  display: none;
 }
