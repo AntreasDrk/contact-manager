@@ -31,19 +31,7 @@ const savedContacts = localStorage.getItem("contacts");
 // checks if its not empty and if not it will save it back to contacts array
 if (savedContacts) {
   contacts = JSON.parse(savedContacts);
-
-  contacts.forEach(function (contact) {
-    // Contact Card (this will be used to create a div inside the container for the list)
-    const contactCard = document.createElement("div");
-    contactCard.classList.add("contact-card");
-
-    contactCard.innerHTML = `
-      <input type="checkbox" />
-      <h5> ${contact.firstName} ${contact.lastName} </h5>
-    `;
-
-    listContainer.appendChild(contactCard);
-  });
+  contacts.forEach(displayContactCard);
 }
 
 // Function to store contacts when called
@@ -57,6 +45,21 @@ function storeContacts(firstName, lastName, email, phone) {
 
   contacts.push(contact); // updates the array with a contact
   localStorage.setItem("contacts", JSON.stringify(contacts)); // save updated array
+  return contact;
+}
+
+// Function so i can display contacts without reloading the page
+function displayContactCard(contact) {
+  // Contact Card (this will be used to create a div inside the container for the list)
+    const contactCard = document.createElement("div");
+    contactCard.classList.add("contact-card");
+
+    contactCard.innerHTML = `
+      <input type="checkbox" />
+      <h5> ${contact.firstName} ${contact.lastName} </h5>
+    `;
+
+    listContainer.appendChild(contactCard);
 }
 
 // Stops submit button from reloading the page
@@ -71,8 +74,16 @@ form.addEventListener("submit", function (event) {
 
   console.log("Form Submitted!");
 
-  storeContacts(first_Name_field, last_Name_field, email_field, phone_Number_field);
-  console.log(contacts);
+  const NEW_CONTACT = storeContacts(first_Name_field, last_Name_field, email_field, phone_Number_field);
+
+  // Show it immediately in the DOM
+  displayContactCard(NEW_CONTACT);
+
+  modal.classList.toggle("modal-show");
+  modal.classList.toggle("modal-hidden");
+
+  // clear form fields
+  form.reset();
 });
 
 // Clear button to reset localstorage
