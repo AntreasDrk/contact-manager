@@ -120,30 +120,34 @@ header {
 
 /* contacts display wrapper */
 .contacts-display-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 2em 0em 0em 0em;
   border: 0.1em solid black;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
 /* contact cards */
 .contact-list-container {
-  position: relative;
-  text-align: center;
-  width: 12em;
-  height: 2em;
-  margin: 0em 0em 0em 3em;
-  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
 }
 
 .contact-card {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  align-items: center;
   gap: 1em;
-  width: 12em;
-  height: 2em;
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  padding: 0.5em;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ccc;
+  border-radius: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .contact-card h5 {
