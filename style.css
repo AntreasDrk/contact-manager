@@ -121,11 +121,13 @@ header {
 /* contacts display wrapper */
 .contacts-display-wrapper {
   margin: 2em 0em 0em 0em;
+  border: 0.1em solid black;
 }
 
 /* contact cards */
 .contact-list-container {
   position: relative;
+  text-align: center;
   width: 12em;
   height: 2em;
   margin: 0em 0em 0em 3em;
@@ -133,7 +135,11 @@ header {
 }
 
 .contact-card {
-  position: absolute;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1em;
   width: 12em;
   height: 2em;
   margin: 0;
