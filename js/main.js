@@ -109,3 +109,29 @@ CLEAR_BTN.addEventListener("click", function () {
   contacts = []; // empties contacts array
   document.getElementById("contact-list").innerHTML = ""; // clears UI
 });
+
+
+// EDIT BUTTON TO CHANGE THE IMAGE OF THE PROFILE PICTURE
+
+const editButton = document.getElementById("edit-image");
+const fileInput = document.getElementById("image-upload");
+const profileImg = document.querySelector(".profile-image-container img");
+
+// When button is clicked, trigger hidden file input field
+editButton.addEventListener("click", () => {
+  fileInput.click();
+});
+
+// When a file is selected, load it into the <img> tag
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      profileImg.src = e.target.result; // Sets new image
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
