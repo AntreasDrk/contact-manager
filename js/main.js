@@ -1,10 +1,10 @@
 "use strict";
 
 // imports files from the ui.js
-import { showPlaceholder, removePlaceholder } from "./ui.js";
+import { showPlaceholder, removePlaceholder, showContactInfo, removeContactInfo } from "./ui.js";
 
 showPlaceholder(); // shows the placeholder when no contact is pressed
-//removePlaceholder(); // will hide placeholder when contact is pressed
+removeContactInfo();
 
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
@@ -68,6 +68,13 @@ function displayContactCard(contact) {
     `;
 
   listContainer.appendChild(contactCard);
+
+  // will remove the placeholder and later add information about the user
+  contactCard.addEventListener("click", function() {
+    removePlaceholder();
+    // later add logic to show contact information
+    showContactInfo();
+  })
 }
 
 // Stops submit button from reloading the page
