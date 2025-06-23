@@ -14,11 +14,16 @@
       <h1 class="logo">Contact Manager</h1>
     </header>
     <main>
+      <!-- main contect -->
       <div class="app-container">
+        <!-- add btn -->
         <button id="add-contact-btn" class="add-btn">+ Add</button>
+        <!-- clear localStorage btn -->
         <button id="clear-contacts-btn" class="clear-btn">Clear</button>
 
+        <!-- modal that opens when adding contact -->
         <div id="modal" class="modal-hidden">
+          <!-- for container -->
           <div class="form-container">
             <span id="close-modal-btn" class="close-btn"
               ><svg width="24px" height="24px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000" stroke-width="0.00032">
@@ -32,6 +37,7 @@
                   ></path>
                   <path d="M10.722 9.969l-0.754 0.754 5.278 5.278-5.253 5.253 0.754 0.754 5.253-5.253 5.253 5.253 0.754-0.754-5.253-5.253 5.278-5.278-0.754-0.754-5.278 5.278z" fill="#000000"></path>
                 </g></svg></span>
+                <!-- form inputs -->
             <form id="contact-form">
               <h3 class="new-contact">New Contact</h3>
               <input type="text" id="first-name" class="input-fields" placeholder="First Name" required />
@@ -43,6 +49,11 @@
           </div>
         </div>
 
+        <!-- SEARCH BAR -->
+        <div id="search-bar-container">
+          <input type="text" id="search-input" placeholder="Search by..." />
+        </div>
+       
         <div id="display-wrapper" class="display">
 
           <!-- LEFT SIDE -->

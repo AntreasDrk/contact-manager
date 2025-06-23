@@ -127,10 +127,10 @@ document.addEventListener("click", function(event) {
   // event.target is the element clicked
 
   // Check if click is inside the containers
-
   const clickInsideList = listContainer.contains(event.target);
   const clickInsideDetails = detailsContainer.contains(event.target);
 
+  // if not clicked inside then show placeholder hide info
   if (!clickInsideList && !clickInsideDetails) {
     showPlaceholder();
     removeContactInfo();
