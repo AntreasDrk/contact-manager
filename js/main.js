@@ -6,12 +6,7 @@ import { showPlaceholder, removePlaceholder, showContactInfo, removeContactInfo 
 showPlaceholder(); // shows the placeholder when no contact is pressed
 removeContactInfo();
 
-import {
-  getContacts,
-  storeContact,
-  clearContacts
-} from "./data.js";
-
+import { getContacts, storeContact, clearContacts } from "./data.js";
 
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
@@ -37,6 +32,9 @@ addBtn.addEventListener("click", function () {
 // Contact List
 const listContainer = document.getElementById("contact-list");
 
+// Grabbing the search bar id
+const SEARCH_BAR = document.getElementById("search-input");
+
 const contacts = getContacts();
 contacts.forEach(displayContactCard);
 
@@ -54,11 +52,11 @@ function displayContactCard(contact) {
   listContainer.appendChild(contactCard);
 
   // will remove the placeholder and later add information about the user
-  contactCard.addEventListener("click", function() {
+  contactCard.addEventListener("click", function () {
     removePlaceholder();
     // later add logic to show contact information
     showContactInfo();
-  })
+  });
 }
 
 // Stops submit button from reloading the page
@@ -93,7 +91,6 @@ CLEAR_BTN.addEventListener("click", function () {
   document.getElementById("contact-list").innerHTML = ""; // clears UI
 });
 
-
 // EDIT BUTTON TO CHANGE THE IMAGE OF THE PROFILE PICTURE
 
 const editButton = document.getElementById("edit-image");
@@ -119,11 +116,10 @@ fileInput.addEventListener("change", () => {
   }
 });
 
-
 // To hide the information once clicked outside of left/right panels in contact display
 const detailsContainer = document.getElementById("contact-details");
 
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
   // event.target is the element clicked
 
   // Check if click is inside the containers
@@ -135,4 +131,21 @@ document.addEventListener("click", function(event) {
     showPlaceholder();
     removeContactInfo();
   }
+});
+
+// SEARCH BAR
+SEARCH_BAR.addEventListener("input", (event) => {
+  // make everything lowercase to make sure we can grab everything
+  const query = event.target.value.toLowerCase();
+
+  // turning the contacts to lowercase and searching for contacts
+  const filteredContacts = contacts.filter((contact) => {
+    return contact.firstName.toLowerCase().includes(query);
+  });
+
+  // clear the old list
+  listContainer.innerHTML = "";
+
+  // show matches
+  filteredContacts.forEach(displayContactCard);
 });
