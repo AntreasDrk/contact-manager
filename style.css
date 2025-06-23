@@ -229,3 +229,13 @@ header {
   color: white;
   cursor: pointer;
 }
+
+
+/* search-bar */
+.search-bar-wrapper {
+  display: block;
+}
+
+.search-bar {
+  margin-left: 2em;
+}
