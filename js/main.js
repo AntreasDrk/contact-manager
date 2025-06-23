@@ -6,6 +6,13 @@ import { showPlaceholder, removePlaceholder, showContactInfo, removeContactInfo 
 showPlaceholder(); // shows the placeholder when no contact is pressed
 removeContactInfo();
 
+import {
+  getContacts,
+  storeContact,
+  clearContacts
+} from "./data.js";
+
+
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
 
@@ -27,34 +34,11 @@ addBtn.addEventListener("click", function () {
   modal.classList.toggle("modal-hidden");
 });
 
-// Stored Contacts
-let contacts = [];
-
 // Contact List
 const listContainer = document.getElementById("contact-list");
 
-// Grabs the saved contacts to read it
-const savedContacts = localStorage.getItem("contacts");
-
-// checks if its not empty and if not it will save it back to contacts array
-if (savedContacts) {
-  contacts = JSON.parse(savedContacts);
-  contacts.forEach(displayContactCard);
-}
-
-// Function to store contacts when called
-function storeContacts(firstName, lastName, email, phone) {
-  const contact = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    phone: phone,
-  };
-
-  contacts.push(contact); // updates the array with a contact
-  localStorage.setItem("contacts", JSON.stringify(contacts)); // save updated array
-  return contact;
-}
+const contacts = getContacts();
+contacts.forEach(displayContactCard);
 
 // Function so i can display contacts without reloading the page
 function displayContactCard(contact) {
@@ -89,7 +73,7 @@ form.addEventListener("submit", function (event) {
 
   console.log("Form Submitted!");
 
-  const NEW_CONTACT = storeContacts(first_Name_field, last_Name_field, email_field, phone_Number_field);
+  const NEW_CONTACT = storeContact(first_Name_field, last_Name_field, email_field, phone_Number_field);
 
   // Show it immediately in the DOM
   displayContactCard(NEW_CONTACT);
@@ -105,8 +89,7 @@ form.addEventListener("submit", function (event) {
 const CLEAR_BTN = document.getElementById("clear-contacts-btn");
 
 CLEAR_BTN.addEventListener("click", function () {
-  localStorage.removeItem("contacts"); // clears localStorage
-  contacts = []; // empties contacts array
+  clearContacts(); // removes contacts
   document.getElementById("contact-list").innerHTML = ""; // clears UI
 });
 
@@ -133,5 +116,23 @@ fileInput.addEventListener("change", () => {
     };
 
     reader.readAsDataURL(file);
+  }
+});
+
+
+// To hide the information once clicked outside of left/right panels in contact display
+const detailsContainer = document.getElementById("contact-details");
+
+document.addEventListener("click", function(event) {
+  // event.target is the element clicked
+
+  // Check if click is inside the containers
+
+  const clickInsideList = listContainer.contains(event.target);
+  const clickInsideDetails = detailsContainer.contains(event.target);
+
+  if (!clickInsideList && !clickInsideDetails) {
+    showPlaceholder();
+    removeContactInfo();
   }
 });

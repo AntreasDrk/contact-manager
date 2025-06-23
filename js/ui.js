@@ -15,3 +15,5 @@ export function removeContactInfo() {
 export function showContactInfo() {
   document.getElementById("info-sections-container").classList.remove("hide-info");
 }
+
+
