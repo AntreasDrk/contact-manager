@@ -142,6 +142,8 @@ header {
   border: 1px solid black;
   max-width: 275px;
   box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* contact cards */
@@ -149,6 +151,9 @@ header {
   display: flex;
   flex-direction: column;
   gap: 0.1em;
+  overflow-y: auto;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 .contact-card {
@@ -156,7 +161,7 @@ header {
   display: flex;
   align-items: center;
   gap: 1em;
-  width: 100%;
+  width: 255px;
   padding: 0.5em;
   background-color: #fae6d3;
   border-bottom: 1px solid #ccc;
@@ -233,9 +238,24 @@ header {
 
 /* search-bar */
 .search-bar-wrapper {
-  display: block;
+  display: inline;
 }
 
 .search-bar {
-  margin-left: 2em;
+  margin: 0em 0em 0em 2em;
+  padding: 0.5em 1em 0.5em 1em;
+  min-width: 300px;
+  border-radius: 14px;
+  border: 0.5px solid black;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.filter-btn {
+  padding: 0.7em 1em;
+  border-radius: 4px;
+  border: none;
+  background-color: rgb(0, 78, 223);
+  color: white;
+  cursor: pointer;
 }
