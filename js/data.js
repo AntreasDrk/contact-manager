@@ -41,3 +41,29 @@ export function clearContacts() {
   contacts = [];
   localStorage.removeItem("contacts");
 }
+
+/**
+ * Grouping contacts by first letter
+ */
+export function groupContactsByFirstLetter(contactsArray) {
+  let group = {};
+  contactsArray.forEach((contact) => {
+    const letter = contact.firstName[0].toUpperCase();
+
+      if (/^[A-Z]$/.test(letter)) {
+        if(group[letter]) {
+          group[letter].push(contact);
+        } else {
+          group[letter] = [contact];
+        }
+      } else {
+          if (group["0-9"]) {
+            group["0-9"].push(contact);
+          } else {
+            group["0-9"] = [contact];
+          }
+      }
+  })
+
+  return group;
+}

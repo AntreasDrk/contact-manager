@@ -6,7 +6,7 @@ import { showPlaceholder, removePlaceholder, showContactInfo, removeContactInfo 
 showPlaceholder(); // shows the placeholder when no contact is pressed
 removeContactInfo();
 
-import { getContacts, storeContact, clearContacts } from "./data.js";
+import { getContacts, storeContact, clearContacts, groupContactsByFirstLetter } from "./data.js";
 
 // Grab the form by its ID
 const form = document.getElementById("contact-form");
@@ -149,3 +149,17 @@ SEARCH_BAR.addEventListener("input", (event) => {
   // show matches
   filteredContacts.forEach(displayContactCard);
 });
+
+
+// test
+
+const testContacts = [
+  { firstName: "Alice", lastName: "Smith" },
+  { firstName: "Bob", lastName: "Jones" },
+  { firstName: "3ric", lastName: "Numberson" },
+  { firstName: "@dam", lastName: "Symbols" },
+  { firstName: "Charlie", lastName: "Brown" }
+];
+
+const grouped = groupContactsByFirstLetter(testContacts);
+console.log(grouped);
