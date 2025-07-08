@@ -1,11 +1,12 @@
 "use strict";
 
 // imports files from the ui.js
-import { showPlaceholder, removePlaceholder, showContactInfo, removeContactInfo } from "./ui.js";
+import { showPlaceholder, removeContactInfo, renderGroupContacts, displayContactCard } from "./ui.js";
 
 showPlaceholder(); // shows the placeholder when no contact is pressed
 removeContactInfo();
 
+// imports files from data.js
 import { getContacts, storeContact, clearContacts, groupContactsByFirstLetter } from "./data.js";
 
 // Grab the form by its ID
@@ -37,27 +38,6 @@ const SEARCH_BAR = document.getElementById("search-input");
 
 const contacts = getContacts();
 contacts.forEach(displayContactCard);
-
-// Function so i can display contacts without reloading the page
-function displayContactCard(contact) {
-  // Contact Card (this will be used to create a div inside the container for the list)
-  const contactCard = document.createElement("div");
-  contactCard.classList.add("contact-card");
-
-  contactCard.innerHTML = `
-      <input type="checkbox" />
-      <h5> ${contact.firstName} ${contact.lastName} </h5>
-    `;
-
-  listContainer.appendChild(contactCard);
-
-  // will remove the placeholder and later add information about the user
-  contactCard.addEventListener("click", function () {
-    removePlaceholder();
-    // later add logic to show contact information
-    showContactInfo();
-  });
-}
 
 // Stops submit button from reloading the page
 form.addEventListener("submit", function (event) {
@@ -150,16 +130,7 @@ SEARCH_BAR.addEventListener("input", (event) => {
   filteredContacts.forEach(displayContactCard);
 });
 
-
-// test
-
-const testContacts = [
-  { firstName: "Alice", lastName: "Smith" },
-  { firstName: "Bob", lastName: "Jones" },
-  { firstName: "3ric", lastName: "Numberson" },
-  { firstName: "@dam", lastName: "Symbols" },
-  { firstName: "Charlie", lastName: "Brown" }
-];
-
-const grouped = groupContactsByFirstLetter(testContacts);
-console.log(grouped);
+// this will grap the contacts and group them alphabeticaly and also display
+// the letters of the grouped contacts A . B . C . D....
+const grouped = groupContactsByFirstLetter(contacts);
+renderGroupContacts(grouped);

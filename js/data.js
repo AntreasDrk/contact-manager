@@ -15,10 +15,10 @@ export function getContacts() {
 
 /**
  * Stores a new contact in localStorage and memory.
- * @param {string} firstName 
- * @param {string} lastName 
- * @param {string} email 
- * @param {string} phone 
+ * @param {string} firstName
+ * @param {string} lastName
+ * @param {string} email
+ * @param {string} phone
  * @returns {Object} contact - the newly created contact
  */
 export function storeContact(firstName, lastName, email, phone) {
@@ -46,24 +46,25 @@ export function clearContacts() {
  * Grouping contacts by first letter
  */
 export function groupContactsByFirstLetter(contactsArray) {
+  contactsArray.sort();
   let group = {};
   contactsArray.forEach((contact) => {
     const letter = contact.firstName[0].toUpperCase();
 
-      if (/^[A-Z]$/.test(letter)) {
-        if(group[letter]) {
-          group[letter].push(contact);
-        } else {
-          group[letter] = [contact];
-        }
+    if (/^[A-Z]$/.test(letter)) {
+      if (group[letter]) {
+        group[letter].push(contact);
       } else {
-          if (group["0-9"]) {
-            group["0-9"].push(contact);
-          } else {
-            group["0-9"] = [contact];
-          }
+        group[letter] = [contact];
       }
-  })
+    } else {
+      if (group["0-9"]) {
+        group["0-9"].push(contact);
+      } else {
+        group["0-9"] = [contact];
+      }
+    }
+  });
 
   return group;
 }

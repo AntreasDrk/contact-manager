@@ -21,17 +21,17 @@
       <div class="app-container">
         <div id="add-delete-btn-container" class="add-del-btn">
           <!-- add btn -->
-        <button id="add-contact-btn" class="add-btn">+ Add</button>
-        <!-- clear localStorage btn -->
-        <button id="clear-contacts-btn" class="clear-btn">Clear</button>
+          <button id="add-contact-btn" class="add-btn">+ Add</button>
+          <!-- clear localStorage btn -->
+          <button id="clear-contacts-btn" class="clear-btn">Clear</button>
 
-        <!-- delete btn -->
-         <button id="delete-contact-btn" class="delete-btn">Delete</button>
+          <!-- delete btn -->
+          <button id="delete-contact-btn" class="delete-btn">Delete</button>
         </div>
-        
+
         <!-- modal that opens when adding contact -->
         <div id="modal" class="modal-hidden">
-          <!-- for container -->
+          <!-- form container -->
           <div class="form-container">
             <!-- modal close btn -->
             <span id="close-modal-btn" class="close-btn"
@@ -45,8 +45,9 @@
                     fill="#000000"
                   ></path>
                   <path d="M10.722 9.969l-0.754 0.754 5.278 5.278-5.253 5.253 0.754 0.754 5.253-5.253 5.253 5.253 0.754-0.754-5.253-5.253 5.278-5.278-0.754-0.754-5.278 5.278z" fill="#000000"></path>
-                </g></svg></span>
-                <!-- form inputs -->
+                </g></svg
+            ></span>
+            <!-- form inputs -->
             <form id="contact-form">
               <h3 class="new-contact">New Contact</h3>
               <input type="text" id="first-name" class="input-fields" placeholder="First Name" required />
@@ -63,9 +64,8 @@
           <input type="text" id="search-input" class="search-bar" placeholder="Search by..." />
           <button id="filter-button" class="filter-btn">Filters</button>
         </div>
-       
-        <div id="display-wrapper" class="display">
 
+        <div id="display-wrapper" class="display">
           <!-- LEFT SIDE -->
           <div id="contacts-display-container" class="contacts-display-wrapper">
             <div id="contact-list" class="contact-list-container"></div>
@@ -73,7 +73,6 @@
 
           <!-- RIGHT SIDE -->
           <div id="info-detail" class="info-detail-wrapper">
-
             <!-- PLACEHOLDER -->
             <div id="placeholder-message" class="placeholder-msg">
               <p>Select a Contact to Display it's information.</p>
@@ -81,42 +80,41 @@
 
             <!-- INFO DISPLAY FOR CONTACTS -->
             <div id="contact-details" class="cotact-details-info">
-                <!-- TOP SIDE -->  
+              <!-- TOP SIDE -->
               <div id="info-sections-container" class="info-sections hide-info">
                 <div id="top-section-info" class="profile-image-container">
-                <div class="profile-image-container">
-                  <img src="./public/images/maxUse.png"/>
-                  <button id="edit-image" class="edit-image-btn">Edit Profile Picture</button>
-                  <input type="file" id="image-upload" accept="image/*" style="display: none;" />
+                  <div class="profile-image-container">
+                    <img src="./public/images/maxUse.png" />
+                    <button id="edit-image" class="edit-image-btn">Edit Profile Picture</button>
+                    <input type="file" id="image-upload" accept="image/*" style="display: none" />
+                  </div>
+                </div>
+
+                <!-- MID SIDE -->
+                <div id="middle-section-info" class="contact-information-container">
+                  <ul id="contact-info-panel">
+                    <li class="contact-info-name">Name</li>
+                    <li class="contact-info-last-name">Last Name</li>
+                    <li class="contact-info-email">Email</li>
+                    <li class="contact-info-phone">Phone Number</li>
+                  </ul>
+                </div>
+
+                <!-- BOTTOM SIDE -->
+                <div id="bottom-section-info" class="contact-social-media-container">
+                  <ul id="contact-info-social-media">
+                    <li class="meta">
+                      <a href="#"><img /></a>
+                    </li>
+                    <li class="x">
+                      <a href="#"><img /></a>
+                    </li>
+                    <li class="instagram">
+                      <a href="#"><img /></a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-
-              <!-- MID SIDE -->
-              <div id="middle-section-info" class="contact-information-container">
-                <ul id="contact-info-panel">
-                  <li class="contact-info-name">Name</li>
-                  <li class="contact-info-last-name">Last Name</li>
-                  <li class="contact-info-email">Email</li>
-                  <li class="contact-info-phone">Phone Number</li>
-                </ul>
-              </div>
-
-              <!-- BOTTOM SIDE -->
-              <div id="bottom-section-info" class="contact-social-media-container">
-                <ul id="contact-info-social-media">
-                  <li class="meta">
-                    <a href="#"><img /></a>
-                  </li>
-                  <li class="x">
-                    <a href="#"><img /></a>
-                  </li>
-                  <li class="instagram">
-                    <a href="#"><img /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
             </div>
           </div>
         </div>
