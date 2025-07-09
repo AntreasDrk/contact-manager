@@ -36,8 +36,12 @@ const listContainer = document.getElementById("contact-list");
 // Grabbing the search bar id
 const SEARCH_BAR = document.getElementById("search-input");
 
+// holds contacts here
 const contacts = getContacts();
-contacts.forEach(displayContactCard);
+// groups them and then clears old ui to re-render them
+const grouped = groupContactsByFirstLetter(contacts);
+listContainer.innerHTML = "";
+renderGroupContacts(grouped);
 
 // Stops submit button from reloading the page
 form.addEventListener("submit", function (event) {
@@ -53,8 +57,13 @@ form.addEventListener("submit", function (event) {
 
   const NEW_CONTACT = storeContact(first_Name_field, last_Name_field, email_field, phone_Number_field);
 
-  // Show it immediately in the DOM
-  displayContactCard(NEW_CONTACT);
+  // 🔁 Rerender the whole list with sticky headers
+  const updatedContacts = getContacts();
+  // this will grap the contacts and group them alphabeticaly and also display
+  // the letters of the grouped contacts A . B . C . D....
+  const grouped = groupContactsByFirstLetter(updatedContacts);
+  listContainer.innerHTML = "";
+  renderGroupContacts(grouped);
 
   modal.classList.toggle("modal-show");
   modal.classList.toggle("modal-hidden");
@@ -129,8 +138,3 @@ SEARCH_BAR.addEventListener("input", (event) => {
   // show matches
   filteredContacts.forEach(displayContactCard);
 });
-
-// this will grap the contacts and group them alphabeticaly and also display
-// the letters of the grouped contacts A . B . C . D....
-const grouped = groupContactsByFirstLetter(contacts);
-renderGroupContacts(grouped);
